@@ -1,8 +1,20 @@
 const express = require('express');
 
+const cors = require('cors');
+
 const app = express();
 
-app.get('/', (req, res) => res.json({ msg: 'Welcome to theCIP API' }));
+const corsOptions = {
+  origin: 'http://localhost:3000'
+};
+
+// Enabling Cross Origin Request for dev environment
+app.use(cors(corsOptions));
+
+app.get('/', (req, res) => res.json({ msg: 'Welcome to the CIP API' }));
+
+// Define routes
+app.use('/courses', require('./routes/courses'));
 
 const PORT = process.env.PORT || 5000;
 
