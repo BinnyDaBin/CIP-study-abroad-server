@@ -4,8 +4,12 @@ const cors = require('cors');
 
 const app = express();
 
+const corsOptions = {
+  origin: 'http://localhost:3000'
+};
+
 // Enabling Cross Origin Request for dev environment
-// app.use(cors());
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) => res.json({ msg: 'Welcome to the CIP API' }));
 
