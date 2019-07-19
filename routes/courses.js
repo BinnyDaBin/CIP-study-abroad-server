@@ -10,9 +10,9 @@ const _ = require('lodash');
 */
 router.get('/', (req, res) => {
   try {
-    const filters = req.query.filters;
-    const offset = parseInt(req.query.offset);
-    const size = parseInt(req.query.size);
+    const filters = req.query.filters || {};
+    const offset = parseInt(req.query.offset) || 0;
+    const size = parseInt(req.query.size) || 10;
 
     const filtered = _.filter(MOCK_COURSES, JSON.parse(filters));
     const start = offset * size;
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     res.json(sliced);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send('Server Error');
+    res.status(400).send('Bad Request');
   }
 });
 
