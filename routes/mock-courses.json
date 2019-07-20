@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "studyAbroadInstitution": "Curtin University",
+    "programName": "Australia Curtin",
+    "year": "2016-2017",
+    "kzooCourseName": "Community Service Workshop",
+    "kzooDiscipline": "ANSO",
+    "hostInstiCourseNumber": "XINO 1016",
+    "hostInstiCourseName": "International Study Abroad Community Service"
+  },
+  {
+    "id": 2,
+    "studyAbroadInstitution": "Curtin University",
+    "programName": "Australia: Curtin",
+    "year": "2018-2019",
+    "kzooCourseName": "International Study Abroad- Community Service",
+    "kzooDiscipline": "ANSO",
+    "hostInstiCourseNumber": "XINO 1016",
+    "hostInstiCourseName": "International Study Abroad- Community Service"
+  },
+  {
+    "id": 3,
+    "studyAbroadInstitution": "Curtin University",
+    "programName": "Australia: Curtin",
+    "year": "2018-2019",
+    "kzooCourseName": "Biochemistry and Cell Biology",
+    "kzooDiscipline": "BIOL/CHEM",
+    "hostInstiCourseNumber": "BCCB 2001",
+    "hostInstiCourseName": "Biochemistry and Cell Biology"
+  },
+  {
+    "id": 4,
+    "studyAbroadInstitution": "Curtin University",
+    "programName": "Australia: Curtin",
+    "year": "2018-2019",
+    "kzooCourseName": "Business Law",
+    "kzooDiscipline": "BUSN",
+    "hostInstiCourseNumber": "BLAW1004",
+    "hostInstiCourseName": "Business Law"
+  },
+  {
+    "id": 5,
+    "studyAbroadInstitution": "Curtin University",
+    "programName": "Australia: Curtin",
+    "year": "2018-2019",
+    "kzooCourseName": "Fundamentals of Management",
+    "kzooDiscipline": "BUSN",
+    "hostInstiCourseNumber": "MGMT 1000",
+    "hostInstiCourseName": "Fundamentals of Management"
+  },
+  {
+    "id": 6,
+    "studyAbroadInstitution": "Pontifica Universidad Catolica de Chile",
+    "programName": "Chile",
+    "year": "2018-2019",
+    "kzooCourseName": "Fitness: Weightlifting",
+    "kzooDiscipline": "PED",
+    "hostInstiCourseNumber": "DE PUC-DPT5000",
+    "hostInstiCourseName": "Fitness: Weightlifting I"
+  },
+  {
+    "id": 7,
+    "studyAbroadInstitution": "Pontifica Universidad Catolica de Chile",
+    "programName": "Chile",
+    "year": "2018-2019",
+    "kzooCourseName": "Topics in Political Theory",
+    "kzooDiscipline": "POLS",
+    "hostInstiCourseNumber": "DE PUC-ICP0205",
+    "hostInstiCourseName": "Topics in Political Theory"
+  },
+  {
+    "id": 8,
+    "studyAbroadInstitution": "Pontifica Universidad Catolica de Chile",
+    "programName": "Chile",
+    "year": "2018-2019",
+    "kzooCourseName": "Narrative Texts Analysis",
+    "kzooDiscipline": "SPAN",
+    "hostInstiCourseNumber": "DE PUC-LET224E",
+    "hostInstiCourseName": "Narrative Texts Analysis"
+  },
+  {
+    "id": 9,
+    "studyAbroadInstitution": "Capital Normal University",
+    "programName": "China: CET",
+    "year": "2017-2018",
+    "kzoo_course_name": "Classical Chinese Stories",
+    "kzooDiscipline": "CHIN",
+    "hostInstiCourseNumber": "CL 501",
+    "hostInstiCourseName": "Classical Chinese Stories"
+  },
+  {
+    "id": 10,
+    "studyAbroadInstitution": "Capital Normal University",
+    "programName": "China: CET",
+    "year": "2017-2018",
+    "kzooCourseName": "Music in China",
+    "kzooDiscipline": "CHIN",
+    "hostInstiCourseNumber": "CL 501",
+    "hostInstiCourseName": "Music in China"
+  },
+  {
+    "id": 11,
+    "studyAbroadInstitution": "Capital Normal University",
+    "programName": "China: CET",
+    "year": "2016-2017",
+    "kzooCourseName": "Intermediate Chinese",
+    "kzooDiscipline": "CHIN",
+    "hostInstiCourseNumber": "CL 201",
+    "hostInstiCourseName": "Intermediate Chinese"
+  },
+  {
+    "id": 12,
+    "studyAbroadInstitution": "Costa Rica: International Center for Developmental Studies",
+    "programName": "Costa Rica",
+    "year": "2018-2019",
+    "kzooCourseName": "Rural and Urban Sustainable Development: Global and Local Perspectives",
+    "kzooDiscipline": "ECON",
+    "hostInstiCourseNumber": "SAHD-04",
+    "hostInstiCourseName": "Rural and Urban Sustainable Development: Global and Local Perspectives"
+  },
+  {
+    "id": 13,
+    "studyAbroadInstitution": "Costa Rica: International Center for Developmental Studies",
+    "programName": "Costa Rica",
+    "year": "2018-2019",
+    "kzooCourseName": "Spanish Language- Advanced",
+    "kzooDiscipline": "SPAN",
+    "hostInstiCourseNumber": "ULSP-03",
+    "hostInstiCourseName": "Spanish Language- Advanced"
+  },
+  {
+    "id": 14,
+    "studyAbroadInstitution": "Costa Rica: International Center for Developmental Studies",
+    "programName": "Costa Rica",
+    "year": "2015-2016",
+    "kzooCourseName": "Economics of Health Care Systems",
+    "kzooDiscipline": "ECON",
+    "hostInstiCourseNumber": "HS-03",
+    "hostInstiCourseName": "Economics of Health Care Systems"
+  },
+  {
+    "id": 15,
+    "studyAbroadInstitution": "Universidad San Francisco de Quito",
+    "programName": "Ecuador: Quito",
+    "year": "2018-2019",
+    "kzooCourseName": "Improvisation",
+    "kzooDiscipline": "THEA",
+    "hostInstiCourseNumber": "DAN 1001",
+    "hostInstiCourseName": "Improvisation"
+  },
+  {
+    "id": 16,
+    "studyAbroadInstitution": "Universidad San Francisco de Quito",
+    "programName": "Ecuador: Quito",
+    "year": "2018-2019",
+    "kzooCourseName": "Class.Piano Private Lesson I",
+    "kzooDiscipline": "MUSC",
+    "hostInstiCourseNumber": "IMC 0149C",
+    "hostInstiCourseName": "Class. Piano Private Lesson I"
+  },
+  {
+    "id": 17,
+    "studyAbroadInstitution": "Universidad San Francisco de Quito",
+    "programName": "Ecuador: Quito",
+    "year": "2017-2018",
+    "kzooCourseName": "Personality Theories",
+    "kzooDiscipline": "PSYC",
+    "hostInstiCourseNumber": "SIC 0206",
+    "hostInstiCourseName": "Personality Theories"
+  },
+  {
+    "id": 18,
+    "studyAbroadInstitution": "Ecole Superieure de Commerce de Clermont",
+    "programName": "France: Clermont",
+    "year": "2017-2018",
+    "kzooCourseName": "A New Approact to Ethics",
+    "kzooDiscipline": "PHIL",
+    "hostInstiCourseNumber": "GE05BC3-00",
+    "hostInstiCourseName": "A New Approach to Ethics"
+  },
+  {
+    "id": 19,
+    "studyAbroadInstitution": "Ecole Superieure de Commerce de Clermont",
+    "programName": "France: Clermont",
+    "year": "2016-2017",
+    "kzooCourseName": "Advanced French Language II",
+    "kzooDiscipline": "FREN",
+    "hostInstiCourseNumber": "G082BL2-60",
+    "hostInstiCourseName": "Langue Francaise"
+  },
+  {
+    "id": 20,
+    "studyAbroadInstitution": "Institut International d Etudes Francaise",
+    "programName": "France: Strasbourg",
+    "year": "2017-2018",
+    "kzooCourseName": "Intensive French (Stage)",
+    "kzooDiscipline": "FREN",
+    "hostInstiCourseNumber": "",
+    "hostInstiCourseName": "Intensive French (Stage)"
+  },
+  {
+    "id": 21,
+    "studyAbroadInstitution": "Universität Bonn",
+    "programName": "Germany: Bonn",
+    "year": "2017-2017",
+    "kzooCourseName": "Integrative Cultural Research Project",
+    "kzooDiscipline": "ICRP",
+    "hostInstiCourseNumber": "",
+    "hostInstiCourseName": "ICRP \"Foreign Language Acquisition in German Public Schools & Personal Reflection (Friedrich-Ebert Gymnasium Bonn)"
+  },
+  {
+    "id": 22,
+    "studyAbroadInstitution": "Universität Bonn",
+    "programName": "Germany: Bonn",
+    "year": "2015-2016",
+    "kzooCourseName": "Topics: European Integration",
+    "kzooDiscipline": "GERM",
+    "hostInstiCourseNumber": "",
+    "hostInstiCourseName": "European Integration"
+  },
+  {
+    "id": 23,
+    "studyAbroadInstitution": "Friedrich-Alexander Universität, Erlangen",
+    "programName": "Germany: Erlangen",
+    "year": "2018-2019",
+    "kzooCourseName": "The U.S. Constitution",
+    "kzooDiscipline": "POLS",
+    "hostInstiCourseNumber": "",
+    "hostInstiCourseName": "The U.S. Constitution"
+  },
+  {
+    "id": 24,
+    "studyAbroadInstitution": "Greece College Year in Athens",
+    "programName": "Greece",
+    "year": "2018-2019",
+    "kzooCourseName": "The Culture of Modern Greece",
+    "kzooDiscipline": "ANSO",
+    "hostInstiCourseNumber": "ANTH 333",
+    "hostInstiCourseName": "The Culture of Modern Greece"
+  },
+  {
+    "id": 25,
+    "studyAbroadInstitution": "Greece College Year in Athens",
+    "programName": "Greece",
+    "year": "2018-2019",
+    "kzooCourseName": "The Art & Craft of Curating",
+    "kzooDiscipline": "ARTX",
+    "hostInstiCourseNumber": "ARCH 331",
+    "hostInstiCourseName": "The Art & Craft of Curating"
+  },
+  {
+    "id": 26,
+    "studyAbroadInstitution": "Budapest Semesters in Mathematics",
+    "programName": "Hungary: BSM",
+    "year": "2017-2018",
+    "kzooCourseName": "Cognitive Science",
+    "kzooDiscipline": "IDSY",
+    "hostInstiCourseNumber": "",
+    "hostInstiCourseName": "Cognitive Science"
+  },
+  {
+    "id": 27,
+    "studyAbroadInstitution": "Budapest Semesters in Mathematics",
+    "programName": "Hungary: BSM",
+    "year": "2017-2018",
+    "kzooCourseName": "Independent Study Project",
+    "kzooDiscipline": "IDSY",
+    "hostInstiCourseNumber": "",
+    "hostInstiCourseName": "Independent Study Project"
+  },
+  {
+    "id": 28,
+    "study_abroad_institution": "Ben-Gurion University",
+    "programName": "Israel: Beer Sheva",
+    "year": "2015-2016",
+    "kzooCourseName": "Mystical Literatures in Judaic, Christian, and Islamic Tradition",
+    "kzooDiscipline": "ENGL",
+    "hostInstiCourseNumber": "013.5.0105",
+    "hostInstiCourseName": "Mystical Literatures in Judaic, Christian, and Islamic Tradition"
+  },
+  {
+    "id": 29,
+    "studyAbroadInstitution": "The American University of Rome",
+    "programName": "Italy",
+    "year": "2018-2019",
+    "kzooCourseName": "Introduction to Anthropology",
+    "kzooDiscipline": "ANSO",
+    "hostInstiCourseNumber": "ANT 100",
+    "hostInstiCourseName": "Introduction to Anthropology"
+  },
+  {
+    "id": 30,
+    "studyAbroadInstitution": "Doshisha University",
+    "programName": "Japan: Doshisha",
+    "year": "2015-2016",
+    "kzooCourseName": "Intermediate Japanese Language I",
+    "kzooDiscipline": "JAPN",
+    "hostInstiCourseNumber": "(General 8 )－71",
+    "hostInstiCourseName": "Japanese 1"
+  }
+]
