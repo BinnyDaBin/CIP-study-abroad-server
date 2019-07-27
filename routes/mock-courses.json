@@ -84,7 +84,7 @@
     "studyAbroadInstitution": "Capital Normal University",
     "programName": "China: CET",
     "year": "2017-2018",
-    "kzoo_course_name": "Classical Chinese Stories",
+    "kzooCourseName": "Classical Chinese Stories",
     "kzooDiscipline": "CHIN",
     "hostInstiCourseNumber": "CL 501",
     "hostInstiCourseName": "Classical Chinese Stories"
@@ -271,7 +271,7 @@
   },
   {
     "id": 28,
-    "study_abroad_institution": "Ben-Gurion University",
+    "studyAbroadInstitution": "Ben-Gurion University",
     "programName": "Israel: Beer Sheva",
     "year": "2015-2016",
     "kzooCourseName": "Mystical Literatures in Judaic, Christian, and Islamic Tradition",
