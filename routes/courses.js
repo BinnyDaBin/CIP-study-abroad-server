@@ -40,8 +40,8 @@ router.get('/', async (req, res) => {
         let endYears = [];
         _.each(value, year => {
           const split = year.split('-');
-          startYears.push(split[0]);
-          endYears.push(split[1]);
+          startYears.push(Number(split[0]));
+          endYears.push(Number(split[1]));
         });
         parsedFilters.startYear = startYears;
         parsedFilters.endYear = endYears;
