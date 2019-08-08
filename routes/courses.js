@@ -31,20 +31,18 @@ router.get('/', async (req, res) => {
 
     let parsedFilters = JSON.parse(filters);
 
-    parsedFilters = _.each(parsedFilters, (value, key) => {
-      if (key === 'year') {
-        const startYears = [];
-        const endYears = [];
-        _.each(value, year => {
-          const split = year.split('-');
-          startYears.push(Number(split[0]));
-          endYears.push(Number(split[1]));
-        });
-        parsedFilters.startYear = startYears;
-        parsedFilters.endYear = endYears;
-        delete parsedFilters.year;
-      }
-    });
+    if (parsedFilters.year) {
+      const startYears = [];
+      const endYears = [];
+      _.each(parsedFilters.year, year => {
+        const split = year.split('-');
+        startYears.push(Number(split[0]));
+        endYears.push(Number(split[1]));
+      });
+      parsedFilters.startYear = startYears;
+      parsedFilters.endYear = endYears;
+      delete parsedFilters.year;
+    }
 
     const filterKeys = Object.keys(parsedFilters);
 
