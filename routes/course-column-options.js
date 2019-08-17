@@ -30,25 +30,20 @@ router.get('/', async (req, res) => {
     courses = courses.rows;
 
     courses = _.each(courses, course => {
-      const year = course.start_year + '-' + course.end_year;
+      const year = `${course.start_year}-${course.end_year}`;
       course.year = year;
       delete course.start_year;
       delete course.end_year;
     });
 
-    let columnIds = Object.keys(courses[0]);
-    columnIds = columnIds.slice(1, columnIds.length);
-    let columnOptions = _.transform(
+    const [id, ...columnIds] = Object.keys(courses[0]);
+    const columnOptions = _.transform(
       columnIds,
       (allOptions, columnId) => {
-        allOptions[columnId] = _.uniq(_.map(courses, columnId));
+        allOptions[_.camelCase(columnId)] = _.uniq(_.map(courses, columnId));
       },
       {}
     );
-    columnOptions = _.each(columnOptions, (value, key) => {
-      key = _.camelCase(key);
-      columnOptions[key] = value;
-    });
 
     res.send(columnOptions);
   } catch (err) {

@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
     const offset = parseInt(req.query.offset) || 0;
     const size = parseInt(req.query.size) || 10;
 
-    let parsedFilters = JSON.parse(filters);
+    const parsedFilters = JSON.parse(filters);
 
     if (parsedFilters.year) {
       const startYears = [];
