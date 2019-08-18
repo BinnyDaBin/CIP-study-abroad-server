@@ -15,6 +15,7 @@ app.get('/', (req, res) => res.json({ msg: 'Welcome to the CIP API' }));
 
 // Define routes
 app.use('/courses', require('./routes/courses'));
+app.use('/courseColumnOptions', require('./routes/course-column-options'));
 
 const PORT = process.env.PORT || 5000;
 

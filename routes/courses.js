@@ -1,14 +1,29 @@
 const express = require('express');
+const { Client } = require('pg');
 const router = express.Router();
-const MOCK_COURSES = require('./mock-courses.json');
 const _ = require('lodash');
+
+const client = new Client({
+  user: 'cipuser',
+  password: 'cippassword',
+  host: 'localhost',
+  port: 5432,
+  database: 'cip'
+});
+
+client.connect(err => {
+  if (err) {
+    throw err;
+  }
+  console.info('Postgresql connected...');
+});
 
 /*
   @route  GET /courses
   @desc   Get courses with filter and paignation
   @access public
 */
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const filters = req.query.filters || {};
     const offset = parseInt(req.query.offset) || 0;
@@ -16,37 +31,64 @@ router.get('/', (req, res) => {
 
     const parsedFilters = JSON.parse(filters);
 
+    if (parsedFilters.year) {
+      const startYears = [];
+      const endYears = [];
+      _.each(parsedFilters.year, year => {
+        const split = year.split('-');
+        startYears.push(Number(split[0]));
+        endYears.push(Number(split[1]));
+      });
+      parsedFilters.startYear = startYears;
+      parsedFilters.endYear = endYears;
+      delete parsedFilters.year;
+    }
+
     const filterKeys = Object.keys(parsedFilters);
-    const filtered = _.filter(MOCK_COURSES, course => {
+
+    let query = 'SELECT * FROM course';
+    if (filterKeys.length > 0) {
       for (let i = 0; i < filterKeys.length; i++) {
-        const filterKey = filterKeys[i];
-        const filterValue = parsedFilters[filterKey];
-        const courseValue = course[filterKey];
+        filterKey = filterKeys[i];
+        filterValue = `'${parsedFilters[filterKey].join("','")}'`;
+        filterKey = _.snakeCase(filterKey);
 
-        if (!filterValue.includes(courseValue)) {
-          return false;
-        }
+        query += `${
+          i === 0 ? ' WHERE' : ' AND'
+        } ${filterKey} IN (${filterValue})`;
       }
-      return true;
-    });
+    }
 
-    const columnIds = Object.keys(MOCK_COURSES[0]);
-    const columnOptions = _.transform(
-      columnIds,
-      (allOptions, columnId) => {
-        allOptions[columnId] = _.uniq(_.map(MOCK_COURSES, columnId));
-      },
-      {}
-    );
+    query += ' ORDER BY start_year DESC';
 
-    const start = offset * size;
-    const end = (offset + 1) * size;
-    const sliced = _.slice(filtered, start, end);
+    let filtered = await client.query(query);
+    filtered = filtered.rows;
+
+    const sliced = filtered.slice(offset * size, (offset + 1) * size);
+
+    const normalized = _.chain(sliced)
+      .map(course => {
+        const year = `${course.start_year}-${course.end_year}`;
+        const { start_year, end_year, id, ...rest } = course;
+        return {
+          year,
+          ...rest
+        };
+      })
+      .map(course => {
+        return _.transform(
+          course,
+          (normalizedCourses, value, key) => {
+            normalizedCourses[_.camelCase(key)] = value;
+          },
+          {}
+        );
+      })
+      .value();
 
     res.json({
-      result: sliced,
-      meta: filtered,
-      columnOptions
+      result: normalized,
+      totalLength: filtered.length
     });
   } catch (err) {
     console.log(err.message);
