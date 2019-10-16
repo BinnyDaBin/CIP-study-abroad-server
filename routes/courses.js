@@ -1,22 +1,8 @@
 const express = require('express');
-const { Client } = require('pg');
 const router = express.Router();
 const _ = require('lodash');
 
-const client = new Client({
-  user: 'cipuser',
-  password: 'cippassword',
-  host: 'localhost',
-  port: 5432,
-  database: 'cip'
-});
-
-client.connect(err => {
-  if (err) {
-    throw err;
-  }
-  console.info('Postgresql connected...');
-});
+const { sequelize } = require('../sequelize');
 
 /*
   @route  GET /courses
@@ -46,7 +32,7 @@ router.get('/', async (req, res) => {
 
     const filterKeys = Object.keys(parsedFilters);
 
-    let query = 'SELECT * FROM course';
+    let query = 'SELECT * FROM courses';
     if (filterKeys.length > 0) {
       for (let i = 0; i < filterKeys.length; i++) {
         filterKey = filterKeys[i];
@@ -61,8 +47,14 @@ router.get('/', async (req, res) => {
 
     query += ' ORDER BY start_year DESC';
 
-    let filtered = await client.query(query);
-    filtered = filtered.rows;
+    // TODO: running twice when the courses page gets loaded
+    let filtered = await sequelize
+      .query(query, {
+        type: sequelize.QueryTypes.SELECT
+      })
+      .then(courses => {
+        return courses;
+      });
 
     const sliced = filtered.slice(offset * size, (offset + 1) * size);
 

@@ -1,22 +1,8 @@
 const express = require('express');
-const { Client } = require('pg');
 const router = express.Router();
 const _ = require('lodash');
 
-const client = new Client({
-  user: 'cipuser',
-  password: 'cippassword',
-  host: 'localhost',
-  port: 5432,
-  database: 'cip'
-});
-
-client.connect(err => {
-  if (err) {
-    throw err;
-  }
-  console.info('Postgresql connected...');
-});
+const { sequelize } = require('../sequelize');
 
 /*
   @route  GET /courseColumnOptions
@@ -25,9 +11,14 @@ client.connect(err => {
 */
 router.get('/', async (req, res) => {
   try {
-    const sql = 'SELECT * FROM course ORDER BY start_year DESC';
-    let courses = await client.query(sql);
-    courses = courses.rows;
+    const sql = 'SELECT * FROM courses ORDER BY start_year DESC';
+    let courses = await sequelize
+      .query(sql, {
+        type: sequelize.QueryTypes.SELECT
+      })
+      .then(courses => {
+        return courses;
+      });
 
     courses = _.each(courses, course => {
       const year = `${course.start_year}-${course.end_year}`;
