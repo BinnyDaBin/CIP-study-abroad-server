@@ -47,7 +47,6 @@ router.get('/', async (req, res) => {
 
     query += ' ORDER BY start_year DESC';
 
-    // TODO: running twice when the courses page gets loaded
     let filtered = await sequelize
       .query(query, {
         type: sequelize.QueryTypes.SELECT

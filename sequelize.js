@@ -7,7 +7,6 @@ const sequelize = new Sequelize('cip', 'cipuser', 'cippassword', {
   dialect: 'postgres'
 });
 
-// another option: authenticate()/sync({ force: true })
 sequelize.authenticate().then(() => {
   console.log('PostgreSQL connected...');
 });

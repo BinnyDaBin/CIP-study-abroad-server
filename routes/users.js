@@ -7,9 +7,13 @@ const { check, validationResult } = require('express-validator');
 
 const { User } = require('../sequelize');
 
-const api_key = 'd0cd6590a28bc110197da8a1f188c6d3-af6c0cec-c5cc7c91';
-const domain = 'sandbox29f4b3e42197455a9efc4208c7c1231e.mailgun.org';
+const api_key = config.get('api_key');
+const domain = config.get('domain');
 const mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
+
+const SECOND = 60;
+const MINUTE = 60;
+const HOUR = SECOND * MINUTE;
 
 router.post(
   '/',
@@ -38,7 +42,7 @@ router.post(
       let user = await User.findOne({ where: { email } });
 
       if (user) {
-        return res.status(400).json({ msg: 'User already exists' });
+        return res.status(403).json({ msg: 'User already exists' });
       }
 
       user = new User({
@@ -64,31 +68,33 @@ router.post(
         payload,
         config.get('jwtSecret'),
         {
-          expiresIn: 3600
+          expiresIn: HOUR
         },
         (err, token) => {
-          if (err) throw err;
+          if (err) {
+            throw err;
+          }
 
           const url = `http://localhost:3000/confirmation-success/${token}`;
 
           const data = {
             from: 'Center for International Programs <no-reply@kzoo.edu>',
-            // TODO: change this to email from registration form
-            to: 'dabinlee0918@gmail.com',
+            // TODO: change this from test email to proper user email address after testing
+            to: 'binbinlee918@gmail.com',
             subject: 'Confirm your registration',
             text: `Please confirm your email by clicking this: <a href="${url}">${url}</a>`
           };
 
           mailgun.messages().send(data, function(error, body) {
-            if (error) throw err;
-            console.log(body);
+            if (error) {
+              throw err;
+            }
           });
 
           res.json({ token });
         }
       );
     } catch (err) {
-      console.log(err.message);
       res.status(500).send('Server Error');
     }
   }
@@ -96,14 +102,12 @@ router.post(
 
 router.put('/confirmation', async (req, res) => {
   try {
-    console.log(req.body);
     const {
       user: { id }
     } = jwt.verify(req.body.token, config.get('jwtSecret'));
 
     await User.update({ confirmed: true }, { where: { id } });
   } catch (err) {
-    console.log(err.message);
     res.status(500).send('Server Error');
   }
 });

@@ -9,6 +9,10 @@ const _ = require('lodash');
 
 const { User } = require('../sequelize');
 
+const SECOND = 60;
+const MINUTE = 60;
+const HOUR = SECOND * MINUTE;
+
 router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findAll({
@@ -20,14 +24,11 @@ router.get('/', auth, async (req, res) => {
       }
     });
 
-    const userData = user[0].dataValues;
-
-    _.forEach(userData, (value, key) => {
-      if (key !== _.camelCase(key)) {
-        userData[_.camelCase(key)] = value;
-        delete userData[key];
-      }
-    });
+    const userData = _.transform(user[0].dataValues, (normalizedUserData, value, key) => {
+      const normalizedKey = _.camelCase(key);
+      normalizedUserData[normalizedKey] = value;
+      return normalizedUserData;
+    }, {});
 
     res.json(userData);
   } catch (err) {
@@ -54,13 +55,13 @@ router.post(
       let user = await User.findOne({ where: { email } });
 
       if (!user) {
-        return res.status(400).json({ msg: 'Invalid Credentials' });
+        return res.status(401).json({ msg: 'Invalid Credentials' });
       }
 
       const checkPassword = await bcrypt.compare(password, user.password);
 
       if (!checkPassword) {
-        return res.status(400).json({ msg: 'Invalid Credentials' });
+        return res.status(401).json({ msg: 'Invalid Credentials' });
       }
 
       if (!user.confirmed) {
@@ -77,10 +78,12 @@ router.post(
         payload,
         config.get('jwtSecret'),
         {
-          expiresIn: 3600
+          expiresIn: HOUR
         },
         (err, token) => {
-          if (err) throw err;
+          if (err) {
+            throw err;
+          }
 
           res.json({ token });
         }

@@ -1,0 +1,4 @@
+-- 1. go to import
+-- 2. choose data file in csv format
+-- 3. header on, deliminator (,)
+-- 4. remove id column as considered columns to import 
