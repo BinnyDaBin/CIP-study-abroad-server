@@ -33,7 +33,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array()[0].msg });
     }
 
     const { firstName, lastName, email, password } = req.body;
@@ -70,31 +70,32 @@ router.post(
         {
           expiresIn: HOUR
         },
-        (err, token) => {
-          if (err) {
-            throw err;
+        (error, token) => {
+          if (error) {
+            throw error;
           }
 
-          const url = `http://localhost:3000/confirmation-success/${token}`;
+          // TODO: change base url to CIP server url
+          const url = config.get('baseUrl') + `/confirmation-success/${token}`;
 
           const data = {
             from: 'Center for International Programs <no-reply@kzoo.edu>',
             // TODO: change this from test email to proper user email address after testing
-            to: 'binbinlee918@gmail.com',
+            to: 'binny.lee15@kzoo.edu',
             subject: 'Confirm your registration',
-            text: `Please confirm your email by clicking this: <a href="${url}">${url}</a>`
+            text: `Please confirm your email by clicking this: <a href="${url}">confirm the registration</a>`
           };
 
           mailgun.messages().send(data, function(error, body) {
             if (error) {
-              throw err;
+              throw error;
             }
           });
 
           res.json({ token });
         }
       );
-    } catch (err) {
+    } catch (error) {
       res.status(500).send('Server Error');
     }
   }

@@ -15,9 +15,6 @@ router.get('/', async (req, res) => {
     let courses = await sequelize
       .query(sql, {
         type: sequelize.QueryTypes.SELECT
-      })
-      .then(courses => {
-        return courses;
       });
 
     courses = _.each(courses, course => {

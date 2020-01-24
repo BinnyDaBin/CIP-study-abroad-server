@@ -50,9 +50,6 @@ router.get('/', async (req, res) => {
     let filtered = await sequelize
       .query(query, {
         type: sequelize.QueryTypes.SELECT
-      })
-      .then(courses => {
-        return courses;
       });
 
     const sliced = filtered.slice(offset * size, (offset + 1) * size);

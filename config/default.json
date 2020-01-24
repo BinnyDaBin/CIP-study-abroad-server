@@ -1,0 +1,6 @@
+{
+    "jwtSecret": "secret",
+    "api_key": "5c7c99bbc4e4c8601c0038e150a27743-9dfbeecd-fa27c70c",
+    "domain": "sandbox51708b0a86f14353b22f1332ef96a247.mailgun.org",
+    "baseUrl": "http://localhost:3000"
+}
